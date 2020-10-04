@@ -21,6 +21,10 @@ public class RequestInformation {
         this.body=body;
     }
 
+    public void addHeaders(String attribute, String value){
+        this.headers.add(attribute,value);
+    }
+
     public String getUrl() {
         return url;
     }

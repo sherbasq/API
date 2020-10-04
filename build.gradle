@@ -38,14 +38,14 @@ configurations {
         extendsFrom testImplementation
     }
 }
-//gradle clean cucumber -Psuite=@Eynar
+//gradle clean cucumber -Psuite=@APIItems
 task cucumber() {
     dependsOn assemble, compileTestJava
     doLast {
         javaexec {
             main = "cucumber.api.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            // args = ['--plugin','html:build/reports/cucumber/report.html', '-f','pretty','--glue', 'cucumber', 'src/test/resources', '--tags']+[suite]
+            //args = ['--plugin','html:build/reports/cucumber/report.html', '-f','pretty','--glue', 'cucumber', 'src/test/resources', '--tags']+[suite]
             args = ['--plugin','json:build/reports/cucumber/report.json', '-f','pretty','--glue', 'runner', 'src/test/resources', '--tags']+[suite]
         }
     }
